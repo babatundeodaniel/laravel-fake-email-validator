@@ -1,0 +1,55 @@
+{
+    "name": "getripay/getripay-verify-fake-emails",
+    "description": "This package helps you avoid fake emails in your registration process",
+    "keywords": [
+        "getripay",
+        "getripay-verify-fake-emails"
+    ],
+    "homepage": "https://github.com/getripay/getripay-verify-fake-emails",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Daniel Babatunde",
+            "email": "obabatundedaniel@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0",
+        "wesbos/burner-email-providers": "dev-master"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Getripay\\GetripayVerifyFakeEmails\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Getripay\\GetripayVerifyFakeEmails\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Getripay\\GetripayVerifyFakeEmails\\GetripayVerifyFakeEmailsServiceProvider"
+            ],
+            "aliases": {
+                "GetripayVerifyFakeEmails": "Getripay\\GetripayVerifyFakeEmails\\GetripayVerifyFakeEmailsFacade"
+            }
+        }
+    }
+}
