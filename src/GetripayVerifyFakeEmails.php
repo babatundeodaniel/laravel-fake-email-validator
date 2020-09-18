@@ -8,10 +8,14 @@ use Illuminate\Support\LazyCollection;
 
 class GetripayVerifyFakeEmails
 {
-    public $path_to_file = 'vendor/wesbos/burner-email-providers/emails.txt';
+    public $path_to_file = '/vendor/wesbos/burner-email-providers/emails.txt';
     // Build your next great package.
     public function validate ($attribute, $value, $parameters, $validator) {
         //$collection = new Collection();
+        logger("Attribute => ". print_r($attribute, 1));
+        logger("Value => ". print_r($value, 1));
+        logger("Parameters => ". print_r($parameters, 1));
+        logger("Validator => ". print_r($validator, 1));
         $collection  = LazyCollection::make(function (){
             $handle = fopen(base_path().$this->path_to_file, "r+");
             while (($line = fgets($handle)) !== false) {
@@ -19,7 +23,10 @@ class GetripayVerifyFakeEmails
             }
         });
         logger(print_r($collection->take(100)->all(), 1));
-        return $value == 'foo';
+        $matched_domain = $collection->search(function ($item, $key) use ($value) {
+            return $item  == $value;
+        });
+        return !empty($matched_domain) ? false : true;
     }
 
     public function readFileToCache(){
