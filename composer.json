@@ -1,11 +1,11 @@
 {
-    "name": "getripay/getripay-verify-fake-emails",
+    "name": "babatundeodaniel/laravel-fake-email-validator",
     "description": "This package helps you avoid fake emails in your registration process",
     "keywords": [
         "getripay",
         "getripay-verify-fake-emails"
     ],
-    "homepage": "https://github.com/getripay/getripay-verify-fake-emails",
+    "homepage": "https://github.com/babatundeodaniel/laravel-fake-email-validator",
     "license": "MIT",
     "type": "library",
     "authors": [
