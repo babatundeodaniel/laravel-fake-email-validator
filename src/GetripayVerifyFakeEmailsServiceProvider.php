@@ -42,7 +42,7 @@ class GetripayVerifyFakeEmailsServiceProvider extends ServiceProvider
 
             // Registering package commands.
             // $this->commands([]);
-            Validator::extend('not_fake_email', 'GetripayVerifyFakeEmails@validate');
+            Validator::extend('not_fake_email', 'Getripay\GetripayVerifyFakeEmails\GetripayVerifyFakeEmails@validate');
         }
 
 
