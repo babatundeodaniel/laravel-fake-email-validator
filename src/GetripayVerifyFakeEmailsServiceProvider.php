@@ -44,7 +44,7 @@ class GetripayVerifyFakeEmailsServiceProvider extends ServiceProvider
             // $this->commands([]);
         }
 
-        Validator::extend('not-fake-email', 'GetripayVerifyFakeEmails@validate');
+        Validator::extend('not_fake_email', 'GetripayVerifyFakeEmails@validate');
 
     }
 
