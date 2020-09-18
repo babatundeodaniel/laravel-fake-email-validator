@@ -60,5 +60,9 @@ class GetripayVerifyFakeEmailsServiceProvider extends ServiceProvider
         $this->app->singleton('getripay-verify-fake-emails', function () {
             return new GetripayVerifyFakeEmails;
         });
+
+        $this->app->bind('GetripayVerifyFakeEmails', function($app) {
+            return new GetripayVerifyFakeEmails();
+        });
     }
 }
