@@ -12,10 +12,9 @@ class GetripayVerifyFakeEmails
     // Build your next great package.
     public function validate ($attribute, $value, $parameters, $validator) {
         //$collection = new Collection();
-        logger("Attribute => ". print_r($attribute, 1));
-        logger("Value => ". print_r($value, 1));
-        logger("Parameters => ". print_r($parameters, 1));
-        logger("Validator => ". print_r($validator, 1));
+        //logger("Attribute => ". print_r($attribute, 1));
+        ///logger("Value => ". print_r($value, 1));
+        //logger("Parameters => ". print_r($parameters, 1));
         $collection  = LazyCollection::make(function (){
             $handle = fopen(base_path().$this->path_to_file, "r+");
             while (($line = fgets($handle)) !== false) {
@@ -23,9 +22,11 @@ class GetripayVerifyFakeEmails
             }
         });
         logger(print_r($collection->take(100)->all(), 1));
-        $matched_domain = $collection->search(function ($item, $key) use ($value) {
-            return $item  == $value;
+        $email_domain = explode('@', $value)[1];
+        $matched_domain = $collection->search(function ($item, $key) use ($email_domain) {
+            return $item  == $email_domain;
         });
+        logger("Matched domains => ".print_r($matched_domain, 1));
         return !empty($matched_domain) ? false : true;
     }
 
