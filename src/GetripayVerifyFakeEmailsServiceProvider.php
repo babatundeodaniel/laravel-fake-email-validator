@@ -3,6 +3,7 @@
 namespace Getripay\GetripayVerifyFakeEmails;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class GetripayVerifyFakeEmailsServiceProvider extends ServiceProvider
 {
