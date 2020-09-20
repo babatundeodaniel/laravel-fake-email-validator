@@ -1,9 +1,6 @@
 <?php
 
-/*
- * You can place your custom package configuration in here.
- */
 return [
     "allowed_domains" => [],
-    
+    "validation_message" => "We are sorry you email cannot be accepted"
 ];

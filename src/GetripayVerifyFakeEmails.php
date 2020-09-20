@@ -14,6 +14,7 @@ class GetripayVerifyFakeEmails
         $email_domain = explode('@', $value)[1];
         logger("Email Domain => ".$email_domain);
         $collection = $this->searchFileForDomain($email_domain);
+        $validator->setCustomMessages(['email.not_fake_email' => config('getripay_verify_fake_emails.validation_message')]);
         return !empty($collection) ? false : true;
     }
 
