@@ -1,24 +1,35 @@
-# Very short description of the package
+# A useful validation rule to check fake emails and dump emails
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/getripay/getripay-verify-fake-emails.svg?style=flat-square)](https://packagist.org/packages/getripay/getripay-verify-fake-emails)
 [![Build Status](https://img.shields.io/travis/getripay/getripay-verify-fake-emails/master.svg?style=flat-square)](https://travis-ci.org/getripay/getripay-verify-fake-emails)
 [![Quality Score](https://img.shields.io/scrutinizer/g/getripay/getripay-verify-fake-emails.svg?style=flat-square)](https://scrutinizer-ci.com/g/getripay/getripay-verify-fake-emails)
 [![Total Downloads](https://img.shields.io/packagist/dt/getripay/getripay-verify-fake-emails.svg?style=flat-square)](https://packagist.org/packages/getripay/getripay-verify-fake-emails)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+The package checks the input email against an updated list of known temporary email host.
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require getripay/getripay-verify-fake-emails
+composer require babatundeodaniel/laravel-fake-email-validator
 ```
+To customize the configuration file, publish the package configuration using Artisan.
 
+```bash
+php artisan vendor:publish --provider="Getripay\GetripayVerifyFakeEmails\GetripayVerifyFakeEmailsServiceProvider"
+```
+You can then edit the generated config at app/config/config/getripay_verify_fake_emails.php.
 ## Usage
 
 ``` php
-// Usage description here
+// Add rule to your laravel validation like this.
+public function rules()
+{
+    return [
+        'emails' => ['not_fake_email'],
+    ];
+}
 ```
 
 ### Testing
