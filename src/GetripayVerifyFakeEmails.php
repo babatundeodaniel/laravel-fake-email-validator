@@ -11,30 +11,27 @@ class GetripayVerifyFakeEmails
     public $path_to_file = '/vendor/wesbos/burner-email-providers/emails.txt';
     // Build your next great package.
     public function validate ($attribute, $value, $parameters, $validator) {
-        //$collection = new Collection();
-        //logger("Attribute => ". print_r($attribute, 1));
-        ///logger("Value => ". print_r($value, 1));
-        //logger("Parameters => ". print_r($parameters, 1));
-        $collection  = LazyCollection::make(function (){
-            $handle = fopen(base_path().$this->path_to_file, "r+");
-            while (($line = fgets($handle)) !== false) {
-                yield $line;
-            }
-        });
-        logger(print_r($collection->take(100)->all(), 1));
         $email_domain = explode('@', $value)[1];
-        $matched_domain = $collection->search(function ($item, $key) use ($email_domain) {
-            return $item  == $email_domain;
-        });
-        logger("Matched domains => ".print_r($matched_domain, 1));
-        return !empty($matched_domain) ? false : true;
+        logger("Email Domain => ".$email_domain);
+        $collection = $this->searchFileForDomain($email_domain);
+        return !empty($collection) ? false : true;
     }
 
-    public function readFileToCache(){
-        $fp = fopen(base_path().$this->path_to_file, "r+");
-        while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
-            echo $line;
+    protected function searchFileForDomain($searchfor){
+        // get the file contents, assuming the file to be readable (and exist)
+        $contents = file_get_contents(base_path().$this->path_to_file);
+        // escape special characters in the query
+        $pattern = preg_quote($searchfor, '/');
+        // finalise the regular expression, matching the whole line
+        $pattern = "/^.*$pattern.*\$/m";
+        // search, and store all matching occurences in $matches
+        if(preg_match_all($pattern, $contents, $matches)){
+            //logger("Found matches:\n". implode("\n", $matches[0]));
+            return $matches;
         }
-        fclose($fp);
+        else{
+            //echo "No matches found";
+            return false;
+        }
     }
 }
