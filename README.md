@@ -1,9 +1,9 @@
 # A useful validation rule to check fake emails and dump emails
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/getripay/getripay-verify-fake-emails.svg?style=flat-square)](https://packagist.org/packages/getripay/getripay-verify-fake-emails)
-[![Build Status](https://img.shields.io/travis/getripay/getripay-verify-fake-emails/master.svg?style=flat-square)](https://travis-ci.org/getripay/getripay-verify-fake-emails)
-[![Quality Score](https://img.shields.io/scrutinizer/g/getripay/getripay-verify-fake-emails.svg?style=flat-square)](https://scrutinizer-ci.com/g/getripay/getripay-verify-fake-emails)
-[![Total Downloads](https://img.shields.io/packagist/dt/getripay/getripay-verify-fake-emails.svg?style=flat-square)](https://packagist.org/packages/getripay/getripay-verify-fake-emails)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/babatundeodaniel/getripay-verify-fake-emails.svg?style=flat-square)](https://packagist.org/packages/babatundeodaniel/getripay-verify-fake-emails)
+[![Build Status](https://img.shields.io/travis/babatundeodaniel/getripay-verify-fake-emails/master.svg?style=flat-square)](https://travis-ci.org/babatundeodaniel/getripay-verify-fake-emails)
+[![Quality Score](https://img.shields.io/scrutinizer/g/babatundeodaniel/getripay-verify-fake-emails.svg?style=flat-square)](https://scrutinizer-ci.com/g/babatundeodaniel/getripay-verify-fake-emails)
+[![Total Downloads](https://img.shields.io/packagist/dt/babatundeodaniel/getripay-verify-fake-emails.svg?style=flat-square)](https://packagist.org/packages/babatundeodaniel/getripay-verify-fake-emails)
 
 The package checks the input email against an updated list of known temporary email host.
 
