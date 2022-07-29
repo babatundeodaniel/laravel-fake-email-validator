@@ -24,7 +24,8 @@ class GetripayVerifyFakeEmails
         // escape special characters in the query
         $pattern = preg_quote($searchfor, '/');
         // finalise the regular expression, matching the whole line
-        $pattern = "/^.*$pattern.*\$/m";
+        // $pattern = "/^.*$pattern.*\$/m";
+        $pattern = "/^($pattern(?=\s))/m";
         // search, and store all matching occurences in $matches
         if(preg_match_all($pattern, $contents, $matches)){
             //logger("Found matches:\n". implode("\n", $matches[0]));
